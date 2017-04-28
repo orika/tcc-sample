@@ -14,34 +14,34 @@
  - limitations under the License.
 -->
 <assembly>
-	<id>assembly</id>
-	<formats>
-		<format>tar.gz</format>
-	</formats>
-	<includeBaseDirectory>true</includeBaseDirectory>
-	<fileSets>
-		<fileSet>
+    <id>assembly</id>
+    <formats>
+        <format>tar.gz</format>
+    </formats>
+    <includeBaseDirectory>true</includeBaseDirectory>
+    <fileSets>
+        <fileSet>
             <directory>${project.build.directory}</directory>
             <outputDirectory>bin</outputDirectory>
             <includes>
                 <include>*.jar</include>
             </includes>
         </fileSet>
-		<fileSet>
-			<directory>src/main/resources/conf</directory>
-			<outputDirectory>conf</outputDirectory>
-			<fileMode>0755</fileMode>
-		</fileSet>
-			<fileSet>
-			<directory>src/main/resources/scripts</directory>
-			<outputDirectory>scripts</outputDirectory>
-			<fileMode>0755</fileMode>
-		</fileSet>
-	</fileSets>
-	<dependencySets>
-		<dependencySet>
-			<useProjectArtifact>false</useProjectArtifact>
-			<outputDirectory>lib</outputDirectory>
-		</dependencySet>
-	</dependencySets>
+        <fileSet>
+            <directory>src/main/resources/conf</directory>
+            <outputDirectory>conf</outputDirectory>
+            <fileMode>0755</fileMode>
+        </fileSet>
+        <fileSet>
+            <directory>src/main/resources/scripts</directory>
+            <outputDirectory>scripts</outputDirectory>
+            <fileMode>0755</fileMode>
+        </fileSet>
+    </fileSets>
+    <dependencySets>
+        <dependencySet>
+            <useProjectArtifact>false</useProjectArtifact>
+            <outputDirectory>lib</outputDirectory>
+        </dependencySet>
+    </dependencySets>
 </assembly>

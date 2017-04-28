@@ -7,53 +7,53 @@ import com.mogujie.tesla.api.annotation.Tesla;
 
 @Tesla
 public class Order extends DefaultParticipant implements IOrder {
-	
-	private Payment payment;
 
-	private Sale sale;
+    private Payment payment;
 
-	public Payment getPayment() {
-		return payment;
-	}
+    private Sale sale;
 
-	public void setPayment(Payment payment) {
-		this.payment = payment;
-	}
+    public Order() {
+        try {
+            initMethods("com.mogujie.tcc.demo.IOrder");
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
 
-	public Sale getSale() {
-		return sale;
-	}
+    public Payment getPayment() {
+        return payment;
+    }
 
-	public void setSale(Sale sale) {
-		this.sale = sale;
-	}
+    public void setPayment(Payment payment) {
+        this.payment = payment;
+    }
 
-	public Order() {
-		try {
-			initMethods("com.mogujie.tcc.demo.IOrder");
-		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
-		}
-	}
-	
-	public void available(String person, int count) {
-		LogUtil.log(person + " buys " + count + " items");
-	}
+    public Sale getSale() {
+        return sale;
+    }
 
-	@Override
-	public void cancel(Long uuid) throws ParticipantException {
-		LogUtil.log("order cancel:" + uuid);
-	}
+    public void setSale(Sale sale) {
+        this.sale = sale;
+    }
 
-	@Override
-	public void confirm(Long uuid) throws ParticipantException {
-		if (!payment.isConfirmed(uuid) || !sale.isConfirmed(uuid))
- 			throw new ParticipantException("fuck");
-		LogUtil.log("order confirm:" + uuid);
-	}
+    public void available(String person, int count) {
+        LogUtil.log(person + " buys " + count + " items");
+    }
 
-	@Override
-	public void expired(Long uuid) throws ParticipantException {
-		LogUtil.log("order expired:" + uuid);
-	}
+    @Override
+    public void cancel(Long uuid) throws ParticipantException {
+        LogUtil.log("order cancel:" + uuid);
+    }
+
+    @Override
+    public void confirm(Long uuid) throws ParticipantException {
+        if (!payment.isConfirmed(uuid) || !sale.isConfirmed(uuid))
+            throw new ParticipantException("fuck");
+        LogUtil.log("order confirm:" + uuid);
+    }
+
+    @Override
+    public void expired(Long uuid) throws ParticipantException {
+        LogUtil.log("order expired:" + uuid);
+    }
 }

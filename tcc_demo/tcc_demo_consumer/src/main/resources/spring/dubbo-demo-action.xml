@@ -14,28 +14,28 @@
  - See the License for the specific language governing permissions and
  - limitations under the License.
 -->
-<beans xmlns="http://www.springframework.org/schema/beans"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns="http://www.springframework.org/schema/beans"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
 
-	<bean id="shopping" class="com.mogujie.tcc.coordinator.consumer.MyActivity">
-       	<constructor-arg index="0" ref="tccManager"></constructor-arg>  
+    <bean id="shopping" class="com.mogujie.tcc.coordinator.consumer.MyActivity">
+        <constructor-arg index="0" ref="tccManager"></constructor-arg>
         <constructor-arg index="1">
-        	<list>
-        		<ref bean="payment"/>
-        		<ref bean="sale"/>
-        		<ref bean="order"/>
-        	</list>
+            <list>
+                <ref bean="payment"/>
+                <ref bean="sale"/>
+                <ref bean="order"/>
+            </list>
         </constructor-arg>
-	</bean>
-	
-	<bean class="com.mogujie.tcc.coordinator.consumer.DemoAction" init-method="start">
-		<property name="sale" ref="sale" />
-		<property name="payment" ref="payment" />
-		<property name="tccManager" ref="tccManager" />
-	</bean>
+    </bean>
 
-	<bean id="tccManager" class="com.mogujie.tcc.TccManager">
-		<property name="coordinator" ref="coordinator" />
-	</bean>
+    <bean class="com.mogujie.tcc.coordinator.consumer.DemoAction" init-method="start">
+        <property name="sale" ref="sale"/>
+        <property name="payment" ref="payment"/>
+        <property name="tccManager" ref="tccManager"/>
+    </bean>
+
+    <bean id="tccManager" class="com.mogujie.tcc.TccManager">
+        <property name="coordinator" ref="coordinator"/>
+    </bean>
 </beans>

@@ -14,15 +14,15 @@
  - limitations under the License.
 -->
 <assembly>
-	<id>assembly</id>
-	<includeBaseDirectory>true</includeBaseDirectory>
-	<fileSets>
-		<fileSet>
+    <id>assembly</id>
+    <includeBaseDirectory>true</includeBaseDirectory>
+    <fileSets>
+        <fileSet>
             <directory>${project.build.directory}</directory>
             <outputDirectory>bin</outputDirectory>
             <includes>
                 <include>*.jar</include>
             </includes>
         </fileSet>
-	</fileSets>
+    </fileSets>
 </assembly>

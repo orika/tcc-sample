@@ -5,5 +5,5 @@ import com.mogujie.tcc.Participant;
 
 public interface IOrder extends Participant {
 
-	void available(String person, int count);
+    void available(String person, int count);
 }
