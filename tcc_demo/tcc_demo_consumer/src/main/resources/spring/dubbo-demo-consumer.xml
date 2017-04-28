@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	   xmlns:tesla="http://www.mogujie.com/schema/tesla"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+	http://www.mogujie.com/schema/tesla http://www.mogujie.com/schema/tesla/tesla.xsd">
+
+	<tesla:consumer id="coordinator" interface="com.mogujie.tcc.Coordinator" timeout = "10000"/>
+	<tesla:consumer id="payment" interface="com.mogujie.tcc.demo.IPayment"/>
+	<tesla:consumer id="sale" interface="com.mogujie.tcc.demo.ISale"/>
+	<tesla:consumer id="order" interface="com.mogujie.tcc.demo.IOrder"/>
+</beans>
